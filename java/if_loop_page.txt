@@ -1,0 +1,26 @@
+==[ DESCRIPTION ]============
+Date Created: 2024-11-23
+Language: java
+
+==[ COMMAND ]================
+
+
+==[ SYNTAX ]=================
+
+if <condition> { 
+  <command if true>;
+} else if <condition> {
+  <command if true>;
+} else {
+  <command if false>;
+}
+
+==[ FLAGS / OPTIONS ]========
+
+
+==[ EXAMPLES ]===============
+
+
+==[ ADV. EXAMPLES ]==========
+
+

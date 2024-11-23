@@ -1,0 +1,371 @@
+At any point, you can type man (command name) or (command name) –help to see tips on how to use the commands. 
+
+    • example: man ls OR ls --help
+
+Link to all man/help pages - https://www.man7.org/linux/man-pages/dir_all_alphabetic.html
+
+You can run multiple commands in one line by separating them with a “;”. For example, you can run cd Documents; ls -l
+
+!$ -- running this after another command will use the previous commands item. for instance, if you mkdir new_folder, you can type cd !$ and it will change to that folder
+
+ls – List contents from current directory. There are a LOT of different ways to change the output of the ls command… by default, ls is set to ls -lh
+
+    • ls -d */ -- this will only list directories
+    
+    • ls | egrep -v '^d' -- this will only list files
+ 
+    • ls ./folder – default for ls is to list everything in your current folder. adding the “./” will show the contents of a subdirectory without changing into it. 
+
+    • ls ./folder1 ./folder2 – same as above, but you can list multiple subdirectories
+
+    • ls $PWD/* --will return (long list) of all the files and directories in the current location, and will show what’s in each directory. it will not expand subdirectories like ls -R will though.
+
+    • ls -d $PWD/* --will (long) list all items, but will show their absolute path
+
+    • ls -R – does the same as ls, but will print out all of the folders contents as well. (probably not a good idea to run this in the “/” file directory)
+
+    • ls –S –sorts the output by file size
+
+    • ls -C – acts more like a “plain ls” command. it technically just sorts by column though
+
+    • ls -Cd $PWD/* -- acts like ls -d $PWD/* but it will only return full filepaths and not a long list. 
+
+        ◦ $PWD/[foldername] – you can drill down to other folders as well
+
+cd – Change Directory. 
+
+    • cd ~ or nothing will take you to your home directory
+
+    • cd .. takes you back up a directory. for example…
+
+        ◦ cd .. will take you from /uname/test to /uname
+
+    • cd folder_name takes you to that directory
+
+    • you can also type the full path from anywhere
+
+pwd – prints “working” or current directory. typically, you’ll start out in /home/uname
+
+$PWD – there are built in “variables” in your environment. you can type printenv, env, or set
+
+    • printenv – prints all or part of environment
+
+    • env – display all exported environment or run a program in a modified environment
+
+    • set – list the name and value of each set variable
+
+        ◦ You can do something like set | grep -I pwd and it will show PWD=/home/uname or whatever your current filepath is
+
+vi – Open text editor (if you have it open, hit “esc” followed by a “:” then do one of the following options
+
+    • :w – saves file
+
+    • :q – quits or “exits” without saving
+
+    • :q! – quits, but “forces” the quit if you accidentally changed something
+
+    • :wq – saves file, then quits
+
+    • :wq! – same as above, but “forces” it 
+
+vimdiff – lets you compare two files. hold Ctrl and double tap “w” to switch between windows
+
+    • vimdiff cheat sheet: https://devhints.io/vim-diff
+
+    • vimdiff colors explained: https://www.thegeekstuff.com/2010/06/vimdiff-file-diff-tool/
+
+exit – Exit session in terminal. If you sudo to root, exit will take you back to your user 
+
+source .bashrc – “Reloads” your .bashrc. If you add a new alias or function, you can type this command instead of closing the terminal and reopening it.
+
+ping – Sends packets to a destination host. You’ll get responses back, or it’ll say it’s not reachable.
+
+rm – Removes files. 
+
+    • rm file.txt – this will remove a file but prompt for a y or n
+
+    • rm -rf file.txt – this will remove the fileand “force” it to happen. 
+
+        ◦ the -r flag will be used to remove directories
+
+        ◦ the -f flag is used to “force” it to happen. 
+
+        ◦ in general, rm -rf is the default for removing files and directories. you can leave the “f” off if  you want it to ask you to acknowledge each file
+
+sudo – Runs the command typed after it as root.
+
+su – Allows you to run commands as another user.
+
+    • you’ll often see “sudo su –“ when people switch to root. 
+
+    • su – su without the “-“ keeps your own environment variables. 
+
+    • su - -- adding the “-“ does not keep your environment variables
+
+ssh – Allows you to access another computer. 
+
+    • exec clear – this will exit current ssh session and clear the termial
+
+rpm -qa | grep -i – searches for installed 
+
+./script.sh – putting the “./” then typing the name of the script will run it
+
+history – shows the history of your commands
+
+echo – repeats what you typed following “echo”. can be helpful when “testing” bash scripts
+
+gedit – opens a gui based text editor. 
+
+read – allows you to ask for user input and assign it to a variable in a bash script. 
+
+    • example: read -e -p “Type a name: “ name; echo $name
+
+mv – used to move files, but can also rename files
+
+alias – shows all alias you can use
+
+systemctl – used to control system system and service manager. 
+
+mkcd – function I created to make a directory and change into it. combines mkdir and cd
+
+    • function mkcd ()
+
+        ◦ {mkdir -p -- “$1” && cd -P -- “$1”} 
+
+for – used to start a “for” loop
+
+	syntax: for item in [list] --item is treated as a variable. list is where you're 						pulling the information from
+
+		do
+
+			[commands]
+
+		done
+
+		example 1: for value in this is a test 
+
+			do 
+
+				echo $value
+
+			done
+
+	NOTE: if you create a for loop in a text doc, it's done like what's above. you can also run for loops in the terminal in "one line". To do this, you'll need to add ";" between each "line" so it'll look something like this...
+
+		example 2: for value in this is a test; do echo $value; done
+
+		example 3: for folder in ./test_folder*; do touch ./$folder/file_test{1..3}; done
+
+		GOAL: make 3 text files in each folder in the current directory
+
+		EXPLAINED: this will start in the current directory because we are specifying "./". "test_folder" is the name of the folders we are wanting to create our files in. the "*" is listed to say anything beginning with "test_folder" will be used. do specifies what we are going to run. touch is creating a text document. ./ again, specifies that we are starting in our current directory. $folder is the variable that is created for each folder starting with "test_folder". file_test{1..3} will create a file named file_test and will append the numbers 1, 2, and 3. it will create a file for each number in the brace expansion or currly brackets as they're also referred to. done means the for loop is done.
+
+		example4: for folder in ./folder*; do echo This is a test >> ./$folder/test.txt; done
+
+		EXPLAINED: this will create a text document in all folders starting in "folder". echo is used to specify what we are writing to each file. >> is outputting the text to the text file we want to create
+
+	RESOURCE: https://linuxhint.com/bash_loop_list_strings/
+
+		https://linuxize.com/post/bash-for-loop/
+
+		
+
+
+
+rpm - 
+
+nslookup – lookup hostname or ip. it will return the DNS entry showing both. Used to get hostname or ip if you only have one
+
+mkdir – makes a directory
+
+firefox – launchs firefox. 
+
+scp – secure copy
+
+ps -ef –shows running processes
+
+grep - typically used to "filter" output from other commands, but is also very powerful for other things. grep can also search for patterns within text files. 
+	example: grep [pattern] [file]
+		this will search for the pattern in the file. you can use * to search any file
+	example: grep -l [pattern] *
+		the previous example will pring out every line where the pattern is found and will have the filename next to each line. If we want to just see where the pattern is (for example, an ip address in an access list), we can add the -l option
+	example: grep -n [pattern] *
+		this is going to basically be identical to the first example, but will also show the line number that the pattern was found. This can be helpful if you want to jump to that spot in the file. (to jump to a lign in vi/vim, just type :123 or whatever the line number is)
+
+grep – used to “filter” through stuff. I always type in the “-i” after grep so it ignores case sensitivity.  example would be looking for the firefox process. you would type ps -ef |grep -i firefox
+
+cp – copies files
+
+clear –“clears” your terminal. you can still scroll up though
+
+uptime – shows how long the system has been up
+
+top – basically a system monitor. think of it as a terminal based task manager 
+
+head – used to just show a specified number of lines at the beginning of a file
+
+tail -- used to just show a specified number of lines at the end of a file
+
+pstree 
+
+passwd
+
+egrep
+
+find – used to find files and directories. can search by file, folder, name, creation date, modification date, owner and permissions. it can also use the ‘-exec’ command to execute other commands on the found files/folders. Find searches inside your current directory. 
+
+    • https://www.diskinternals.com/linux-reader/bash-find-command/
+
+    • syntax
+
+        ◦ find [path] [filter]
+
+>> and tee --these let you write the output to a file (>>) or write to multiple files (tee)
+
+	example: ls -l >> ls_file.txt will print the output of ls -l to ls_file.txt
+
+	example: ls -l | tee ls_file{1..3}.txt will print the output of ls -l to ls_file1.txt ls_file2.txt ls_file3.txt
+
+	
+
+file
+
+export
+
+cat
+
+sed
+
+awk
+
+chmod
+
+chgrp
+
+chown
+
+dirname
+
+readline
+
+basename
+
+realpath
+
+
+
+view IP address
+
+    • ip addr –will show IP addresses for network interfaces
+
+    • ifconfig – will show the same thing in a different layout 
+
+    • https://www.linuxtrainingacademy.com/linux-ip-command-networking-cheat-sheet/
+
+view most used commands
+
+    • history | awk ‘BEGIN {FS=[ \t]+|\\|”} {print $3}‘ | sort | uniq -c | sort -nr
+
+        ◦ If you want to just see your top 5 (or whatever)
+
+            ▪ add | head -n 5 or whatever number you want
+
+        ◦ If you want to just see your least 5 (or whatever)
+
+            ▪ add | tail -n 5 or whatever number you want
+
+Loop arguments
+
+    • Replace all matches
+
+        ◦ ${string//string_to_replace/replacing_string}
+
+    • Replace the first front end match
+
+        ◦ ${string/#string_to_replace/replacing_string}
+
+    • Replace the first back end match
+
+        ◦ ${string/%string_to_replace/replacing_string}
+
+
+
+Find file and change to that directory…
+
+    • variablename=$(find -name filename)
+
+new…
+
+echo “input: “
+
+read input
+
+array=()
+
+while IFS= read -r -d $’\0’; do
+
+	array+=(“$REPLY”)
+
+done < <(find . -name “*${input}*” -type f -print0)
+
+len=${#array[*]}
+
+echo “found: ${len}”
+
+i=0
+
+while [ $i -lt $len ] 
+
+do
+
+echo $i ${array[$i]}
+
+let i++
+
+done
+
+read -e -p “Which option would you like to choose? “ user_option
+
+endpoint=$(realpath ${array[$user_option]})
+
+dirname=$endpoint
+
+#cd $endpoint
+
+#echo “You’re now in “ $PWD
+
+#$SHELL
+
+
+
+
+
+
+
+#new_var=$(dirname “$PWD{array[$user_option]}”)
+
+#echo $new_var
+
+… notes
+
+realpath $PWD{array[$user_option]}
+
+returns /home/uname/folder/notes{array[1]}
+
+
+
+curl (url) >> file.txt
+
+
+
+shopt -s extglob -- expands globbing
+
+rm !(string) remove all files exept what you want to keep
+
+ln -- used to create symbolic or hard links to other files
+
+
+
+================VIM================
+instert a line after every line in a document
+:%s/$/\r/g

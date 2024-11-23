@@ -1,0 +1,19 @@
+==[ DESCRIPTION ]============
+Date Created: 2024-11-23
+Language: bash
+
+==[ COMMAND ]================
+
+
+==[ SYNTAX ]=================
+
+
+==[ FLAGS / OPTIONS ]========
+
+
+==[ EXAMPLES ]===============
+
+
+==[ ADV. EXAMPLES ]==========
+
+
