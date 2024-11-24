@@ -1,0 +1,43 @@
+1. Comments
+-- Java --------------------------
+- Single line and multi-line options
+
+-- Java Single Line
+// Comment out one line
+
+-- Java Multi-Line
+/* 
+Comment out
+multiple
+lines 
+*/
+
+-- Bash --------------------------
+- "Only" has a single line option
+- Roundabout options for multi-line
+
+-- Bash Single Line
+# Comment out stuff
+
+-- Bash Multi-Line (if statement)
+if false; then
+        this stuff is "commented out"
+        but really it's ignored because the if statement is false
+fi
+
+-- Bash Multi-Line (here statement)
+: << 'COMMENT'
+this text
+doesn't really go anywhere
+COMMENT
+
+-- Python ------------------------
+# also uses this...
+""" 
+this starts
+a multi-line
+comment 
+"""
+
+-- PSQL --------------------------
+-- this line is commented out

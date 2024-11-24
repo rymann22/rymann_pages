@@ -1,0 +1,15 @@
+ascii.txt
+	bash/back_test.txt
+	bash/dictionary/
+	bash/echo.sh
+	bash/school.sh
+	bash/sed_line.txt
+	bash/test_file.txt
+	flashlight/
+	java/dictionary/
+	java/get_input_until_blank.java
+	java/output_H.java
+	java/split_name.java
+	misc_info_all.txt
+	perl/
+	python/

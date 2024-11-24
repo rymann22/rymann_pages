@@ -1,0 +1,15 @@
+arch/dfp/
+env/
+hex/
+ignore/
+old/
+*~
+*.cpp
+*.elf
+*.hex
+*.html
+*.o
+*.old
+*.otl
+.*.swo
+.*.swp

@@ -1,0 +1,1 @@
+sed -i '' -e "1s/^//p; 1s/$/$(date +%Y%m%d)/" test_file.txt
