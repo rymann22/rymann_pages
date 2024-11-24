@@ -1,0 +1,32 @@
+set title
+set number
+set ignorecase
+set incsearch
+set cursorline
+set titleold=
+set wildmenu
+set expandtab 
+set tabstop=2 
+set shiftwidth=2
+set smartindent
+set expandtab
+
+
+function! UpdateDate()
+  let l:line = getline(3) " Get the third line
+  if l:line =~ 'Last Update:'
+    let l:new_date = ' Last Update: ' . strftime('%Y-%m-%d')
+    if l:line != l:new_date
+      let l:answer = input('Update date to today? (y/n): ')
+      if l:answer ==# 'y'
+        call setline(3, l:new_date)
+        echo 'Date updated to ' . l:new_date
+      else
+        echo 'Date not updated'
+      endif
+    endif
+  endif
+  write
+endfunction
+
+autocmd BufWriteCmd  /home/rymann22/github/rymann_pages/bash/*_page.txt call UpdateDate()

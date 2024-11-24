@@ -1,0 +1,22 @@
+==[ PAGE INFO ]==============
+Date Created: 2024-11-24
+ Last Update: 2024-11-24
+      Author: Ryan
+    Language: bash
+
+==[ COMMAND ]================
+    Command: awk
+Description: Used to manipulate data, print certain columns in output, format csv's, etc
+
+==[ SYNTAX ]=================
+more stuff this is stuff
+
+==[ FLAGS / OPTIONS ]========
+
+
+==[ EXAMPLES ]===============
+
+
+==[ ADV. EXAMPLES ]==========
+
+
