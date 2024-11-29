@@ -1,0 +1,36 @@
+==[ PAGE INFO ]==============
+Date Created: 2024-11-29
+ Last Update: 2024-11-22
+      Author: Ryan
+    Language: vim
+
+==[ COMMAND ]================
+    Command: sed
+Description: Sed replacements in vim
+
+==[ SYNTAX ]=================
+:%s/<original string or pattern>/<replacement string or pattern>/<additional options...>
+
+==[ FLAGS / OPTIONS ]========
+additional options
+/g -- global (anywhere in the file)
+/c -- check or confirm (asks yes, no, etc, for changes)
+
+==[ EXAMPLES ]===============
+Below is an "example file" for some examples below
+--[ FILE ]-------------------
+1. Spider-Man
+2. Doctor Strange
+3. Iron man 1
+4. Iron man 2
+5. Iron man 3
+--[ EOF ]--------------------
+
+1. Fix "man" being lowercase
+  :%s/man/Man/gc
+2. We don't want the lines numbered anymore. Let's delete the first 3 characters from each line
+  :%s/^.\{3\}//g
+
+==[ ADV. EXAMPLES ]==========
+
+
