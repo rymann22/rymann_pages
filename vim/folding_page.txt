@@ -1,0 +1,55 @@
+==[ PAGE INFO ]==============
+Date Created: 2024-12-07
+ Last Update: 2024-11-22
+      Author: Ryan
+    Language: vim
+
+==[ COMMAND ]================
+    Command: folding
+Description: Fold or "hide" portions of a file
+
+==[ KEYBOARD SHORTCUTS ]=====
+{{{ Keyboard Shortcuts
+     zf#j - creates a fold from the cursor down # lines
+zf/string - creates a fold from the cursor to string
+       zj - moves the cursor to the next fold
+       zk - moves the cursor to the previous fold
+       zo - opens a fold at the cursor
+       zO - opens all folds at the cursor
+       zm - increases the foldlevel by one
+       zM - closes all open folds
+       zr - decreases the foldlevel by one
+       zR - decreases the foldlevel to zero — all folds will be open
+       zd - deletes the fold at the cursor
+       zE - deletes all folds
+       [z - move to start of open fold
+       ]z - move to end of open fold
+}}}
+
+==[ EXAMPLES ]===============
+{{{ Examples
+When a section starts with {{{ Whatever and ends with }}} all the text will be folded by hitting "zc"
+
+For Instance... let's say I have vehicle information. 
+- year, make, model, vin, owner, location, license plate, color, options
+some of this information we might want to hide so we can do this
+
+year - 2003
+make - Mazda
+model - RX7
+{{{ Private Info
+  vin - 123ABC456FDRX7
+  owner - Tony Stark
+  location - California
+  license plate - IRN-MAN
+}}} end private info
+color - Red
+options - All
+}}} end examples
+
+==[ ADV. EXAMPLES ]==========
+
+
+==[ REFERENCES ]=============
+https://www.linux.com/training-tutorials/vim-tips-folding-fun/
+https://www.vimfromscratch.com/articles/vim-folding
