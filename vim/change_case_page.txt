@@ -1,0 +1,36 @@
+==[ PAGE INFO ]==============
+Date Created: 2024-12-20
+ Last Update: 2024-11-22
+      Author: Ryan
+    Language: vim
+
+==[ COMMAND ]================
+    Command: change_case
+Description: Change case of words and lines in vim
+
+==[ SYNTAX ]=================
+- Make sure you take a little bit of time between key entries
+Ryan - Name
+RYAN - gUw - make whole word uppercase
+ryan - guw - make whole word lowercase
+rYAN - g~w - change the case of every character
+
+- Vu - lowercase an entire line
+- VU - uppercase an entire line
+
+cusor location | shortcut | action
+---------------+----------+---------------------
+   top of file | gUG      | uppercase whole file
+   top of file | guG      | lowercase whole file
+bottom of file | gUgg     | uppercase whole file
+bottom of file | gugg     | lowercase whole file
+
+==[ FLAGS / OPTIONS ]========
+
+
+==[ EXAMPLES ]===============
+
+
+==[ ADV. EXAMPLES ]==========
+
+

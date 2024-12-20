@@ -1,0 +1,29 @@
+==[ PAGE INFO ]==============
+Date Created: 2024-12-20
+ Last Update: 2024-11-22
+      Author: Ryan
+    Language: vim
+
+==[ COMMAND ]================
+    Command: copy_lines
+Description: Copying lines, words, lines matching strings, etc.
+
+==[ SYNTAX ]=================
+yy - copy whole line
+yw - copy word (starting AT curser and going right)
+y$ - copy from cursor to end of line
+y^ - copy from cursor to beginning of line
+
+:g/string/yank A - copy ALL lines matching string and put them in register "A"
+  - Make sure you delete the register after you're done!
+  - let @a="" - this will delete that register
+
+==[ FLAGS / OPTIONS ]========
+
+
+==[ EXAMPLES ]===============
+
+
+==[ ADV. EXAMPLES ]==========
+
+
