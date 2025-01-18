@@ -1,0 +1,26 @@
+==[ PAGE INFO ]==============
+Date Created: 2025-01-18
+ Last Update: 2024-11-22
+      Author: Ryan
+    Language: vim
+
+==[ COMMAND ]================
+    Command: scrolloff
+Description: Always show X number of lines above or below cursorline. You can also set it to a high number, such as 999, and it will basically keep your cursorline centered in the window
+
+==[ SYNTAX ]=================
+Show 5 lines above or below cursorline. It'll be noticable when you're moving the cursor up or down quite a ways in a file
+:set scrolloff=5
+Keep your cursorline centered
+:set scrolloff=999
+
+==[ FLAGS / OPTIONS ]========
+
+
+==[ EXAMPLES ]===============
+
+
+==[ ADV. EXAMPLES ]==========
+
+==[ Resources ]==========
+https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen

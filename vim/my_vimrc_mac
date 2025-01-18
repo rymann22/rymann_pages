@@ -1,0 +1,69 @@
+set number
+"set nu rnu
+set wildmenu
+set ignorecase
+set vb t_vb=
+set ruler
+set tabstop=2
+set expandtab
+set shiftwidth=4 
+set ai
+set si
+set breakindent
+set foldmethod=marker
+set scrolloff=5 "this shows 5 lines above or below the cursor when moving in a file
+" set scrolloff=999 "having a large number will always keep the cursorline in the middle of the window
+highlight LineNr ctermfg=brown ctermbg=lightyellow
+" Cursor line stuff...
+set cursorcolumn
+" turn on the actual cursor line
+ set cursorline
+" change the whole line test to red
+hi cursorline cterm=none ctermbg=lightgrey
+hi cursorlinenr ctermbg=green ctermfg=blue
+
+" set breakindent=shift:3
+syntax enable
+" The lines below open a file and go right back to the last line you were editing
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" Map <Esc> in terminal mode to exit insert mode and return to normal mode
+tnoremap <Esc> <C-\><C-n>
+
+" Map Ctrl-w h/j/k/l to move between windows even when in the terminal
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l
+
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+          \ | wincmd p | diffthis
+endif
+
+" Function to create the desired layout
+function! ProjectMode()
+  " Open the directory explorer on the left and resize it
+  Lexplore | vertical resize 20
+
+  " Move the cursor to the right (main window)
+  wincmd l
+
+  " Open a terminal at the bottom
+  belowright terminal
+  " Move the cursor back to the main editing window (top right)
+   wincmd k
+
+" Resize the terminal window to 30 lines
+  resize 30
+
+endfunction
+
+" Create a command to trigger the ProjectMode function
+command! ProjectMode call ProjectMode()
+
