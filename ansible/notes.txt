@@ -1,0 +1,15 @@
+This is from Red Hats website and the "Writing your first playbook" tutorial
+
+Ansible playbooks contain various things, but in general, it'll follow this format
+---
+- name: Name of task
+  hosts: myHosts
+  become: true
+  tasks: 
+
+name: descriptive name of the task
+hosts: servers/workstations to run playbook against. can be single host or group from inventory file
+become: enable user priv escalation with become: true
+tasks: where we define the tasks
+
+

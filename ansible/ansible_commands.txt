@@ -1,0 +1,39 @@
+- ansible-navigator inventory --list
+  - this will output json of what's in our inventory list
+--[ OUTPUT ]--------------------------
+[ rhel@control ]$ ansible-navigator inventory --list
+{
+    "_meta": {
+        "hostvars": {}
+    },
+    "all": {
+        "children": [
+            "ungrouped",
+            "web"
+        ]
+    },
+    "web": {
+        "hosts": [
+            "node1",
+            "node2"
+        ]
+    }
+}
+--------------------------------------
+- ansible-navigator inventory --graph
+  - this will give a less verbose output
+  - it looks more like the output of the "tree" command
+ 
+--[ OUTPUT ]--------------------------
+[rhel@control ]$ ansible-navigator inventory --graph
+@all:
+  |--@ungrouped:
+  |--@web:
+  |  |--node1
+  |  |--node2
+--------------------------------------
+
+
+- ansible-playbook playbook.yml --check --diff
+- ansible-playbook playbook.yml --syntax-check
+- ansible-lint playbook.yml
