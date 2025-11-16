@@ -1,0 +1,32 @@
+git init
+  - creates a new repo
+
+git clone <url>
+  - clones a repo
+
+git checkout -b <branchname>
+  - creates a new branch, AND switches to this branch
+  - git checkout <branchname> is just a way to only switch to the other branch
+  - replaced by switch
+
+git switch <branchname>
+  - new way of git checkout
+
+git merge
+  - this merges changes back into the main branch
+  - for example, if c0 is the start, here's a flow (c# is short for commits)
+  - main branch: c0 -> c1 -> c2 -> c3
+                        \          /
+  - new branch:           b1  ->   b2
+--- for the lesson I was following...
+--- commands | git checkout -b bugFix > git commit > git checkout main > git commit > git merge bugFix
+--- branch   | main - - - - - - - - - - - - - - - - - - - - - - - - - -> main ======> main ===========
+--- branch   |    \\                                                    //                            
+--- branch   |     \\=================> bugFix ====> bugFix ===========//                             
+
+git stash
+git fetch
+git pull
+git add
+git commit
+git status

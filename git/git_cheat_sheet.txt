@@ -1,0 +1,140 @@
+#######################################
+# CAO: 2025-11-16
+#######################################
+
+#######################################
+# Sections
+# 1. Starting git
+# 2. Pre-commit
+# 3. Make commits
+# 4. Branches
+# 5. Diff staged/unstaged changes
+# 6. Diff commits
+#######################################
+
+
+#######################################
+# 1. Starting git
+#######################################
+- git config --global user.name "[first last]"
+  - set your name for version history
+- git config --global user.email "[email@whatever.com]"
+  - set email address 
+- git config --global color.ui auto
+  - sets automatic command line coloring for easy reviewing (never heard of this or done it)
+- git init 
+  - start new repo
+- git clone <url> 
+  - clones an existing repo
+
+#######################################
+# 2. Pre-commit
+#######################################
+- git add <file> 
+  - add untracked file or unstaged changes
+- git add .
+  - add all untracked files and unstaged changes
+- git add -p
+  - choose which parts of a file to stage
+- git move <old> <new>
+  - move a file
+- git rm <file>
+  - remove/delete a file
+- git rm --cached <file>
+  - tells git to forget about a file without deleteting it
+- git reset <file>
+  - unstage one file
+- git reset
+  - unstage everything
+- git rebase <branch>
+  - apply any commits of current branch ahead of specified one
+- git status
+  - check what you've added (staged, unstaged, etc)
+
+#######################################
+# 3. Make commits
+#######################################
+- git commit
+  - make a commit (and open text editor to write the message)
+- git commit -m 'my message'
+  - make a commit with 'my message'
+- git commit -am 'my message'
+  - commit all unstaged changes
+# temporary commits
+- git stash
+  - save modified and staged changes
+- git stash list
+  - list stack-order of stashed file changes
+- git stash pop
+  - write working from top of stash stack
+- git stash drop
+  - discard changes from top of stash stack
+
+
+#######################################
+# 4. Branches
+# - git switch is basically the new way of running git checkout
+#######################################
+- git switch <branch_name>
+- git checkout <branch_name>
+  - two ways to switch branches
+- git switch -c <newBranch>
+- git checkout -b <newBranch>
+  - create a new branch
+- git branch
+  - list branches
+- git branch --sort=-committerdate
+  - list branches by most recently committed to
+- git branch -d <myBranch>
+  - delete a branch
+- git branch -D <myBranch>
+  - force delete a branch
+- git merge <myBranch>
+  - merges the specified branch (myBranch) into the current branch
+- git log
+  - shows all commits in the current branches history
+  - git log --stat -M
+    - shows all commit logs with indication of any paths that moved
+- git push [alias] [branch]
+  - or simply just git push, pushes all local branch commits to the remote repo
+- git fetch
+  - little bit of a "safer" way of git pull
+  - downloads all new commits, branches, and tags from remote repo
+  - it does NOT automatically merge any changes
+  - useful when you ant to see what's new without applying those changes
+- git pull
+  - essentially does git fetch, then merge
+  - downloads all changes and attempts to merge everything into your current branch
+  - useful when you want to just immediately integrate remote changes with your current branch
+
+#######################################
+# 5. Diff staged/unstaged changes
+#######################################
+- git diff head
+  - shows diff of all staged and unstaged changes
+- git diff --staged
+  - just shows diff of staged changes
+- git diff
+  - shows diff of unstaged changes
+
+#######################################
+# 6. Diff commits
+#######################################
+- git show <commit>
+  - show diff between a commit and it's parent
+- git diff <commit01> <commit02>
+  - shows diff of two different commits
+- git diff <commit> <file>
+  - show diff of one file since commit
+- git diff <commit> --stat
+- git show <commit> --stat
+  - show summary of a diff
+
+
+  
+#######################################
+# 99. Sources
+#######################################
+Git website cheat sheet: https://git-scm.com/cheat-sheet
+Another cheat sheet from github: https://education.github.com/git-cheat-sheet-education.pdf
+

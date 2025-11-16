@@ -1,0 +1,2 @@
+Rename files ending in "txt" to "java"
+for i in *.txt; do mv -- "$i" "${i%.txt}.java"; done
