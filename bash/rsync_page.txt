@@ -1,0 +1,36 @@
+rsync output can look weird, but here's the general format of the output and what it means...
+
+Note: this is taken from copilot gpt thing...
+
+                           |1|1
+Position: 1|2|3|4|5|6|7|8|9|0|1
+  String: Y|X|c|s|t|p|o|g|u|a|x
+
+- Y - type of update (what happened)
+- X - file type (file, dir, symlink, etc.)
+- <other stuff> - attributes changed
+
+- Update type (first character)
+  - > - file transferred to dest
+  - c - local change
+  - h - hard link created
+  - . - no update
+  - * - special message (like a warning)
+
+- File type (second character)
+  - f - regular file
+  - d - directory
+  - L - symlink
+  - D - device file
+  - S - special file
+
+- Attribute flags (remaining)
+  - 3(c)  - changed checksum/content
+  - 4(s)  - size changed
+  - 5(t)  - modification time changed
+  - 6(p)  - permissions changed
+  - 7(o)  - owner changed
+  - 8(g)  - group changed
+  - 9(u)  - unexpected (reserved)
+  - 10(a) - ACL changed
+  - 11(x) - Extended attributes changed
