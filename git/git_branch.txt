@@ -1,0 +1,28 @@
+Steps to create a branch of a branch
+
+git checkout -b main_test
+  - create new branch and checkout
+
+git checkout -b main_test_a
+  - creates a new branch (main_test_a) off of main_test
+
+git push -u origin main_test_a
+  - publishes the new brach to the remote
+
+git add .
+git commit -m "my changes"
+git push
+  - commits
+
+2 options
+1. merge locally
+git checkout main_test
+git merge main_test_a
+git push
+
+2. merge via pull request (github/gitlab)
+github: pull request
+gitlab: merge request
+base branch: main_test
+compare branch: main_test_a
+review, approve, merge
